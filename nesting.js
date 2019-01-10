@@ -52,7 +52,22 @@ var employees = [
 
 //Code Here
 
-
+function employeeUpdater(){
+  let newArr = [];
+  for(let i = 0;i<employees.length;i++){
+    if(employees[i]['firstName']!=='Theo'){
+      newArr.push(employees[i])
+    }
+  }
+  console.log(newArr)
+  for(let i = 0;i<employees.length;i++){
+    if(employees[i]['firstName']==='Lorie'){
+      employees[i]['department'] = 'HR'
+    }
+  }
+  console.log(newArr)
+  return newArr
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -70,7 +85,37 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 //Code Here
 
+// function removeDuplicates() {
+//   let newArr = [];
+//   for(let i=0;i<workplaceAccidents.length;i++){
+//     if(!newArr.includes(workplaceAccidents[i])){
+//       newArr.push(workplaceAccidents[i])
+//     }
+//   }
+//   return newArr
+// }
 
+function removeDuplicates(){
+  for(let i=0;i<workplaceAccidents.length;i++){
+    for(let x=i+1;x<workplaceAccidents.length;x++){
+      if(workplaceAccidents[i]===workplaceAccidents[x]){
+        workplaceAccidents.splice(x,1)
+        x--
+      }
+    }
+  }
+  return workplaceAccidents
+}
+
+// function removeDuplicates() {
+//   let unique = {};
+//   workplaceAccidents.forEach(function(i) {
+//     if(!unique[i]) {
+//       unique[i] = true;
+//     }
+//   });
+//   return Object.keys(unique);
+// }
 
 ////////// PROBLEM 3 //////////
 
@@ -97,8 +142,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat['catFriends'][0]['activities'][1];
+var fluffy2ndFriend = cat['catFriends'][1]['name'];
 
 
 
@@ -140,7 +185,11 @@ var myCar = {
 
 //Code Here
 
-
+function recordCleaner(){
+  for(let i=0; i<myCar['accidents'].length;i++){
+    myCar['accidents'][i]['atFaultForAccident']=false
+  }
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -159,4 +208,27 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
+// function looper(){
+//   for(let i=0;i<numsArr.length;i++){
+//     for(let x=0;x<numsArr[i];i++){
+//       if(numsArr[i][x]%2===0){
+//         numsArr[i][x] = 'even'
+//       }else{
+//         numsArr[i][x] = 'odd'
+//       }
+//     }
+//   }
+// }
 
+function looper(){
+  for(let i=0;i<numsArr.length;i++){
+    for(let x=0;x<numsArr[i].length;x++){
+      if(numsArr[i][x]%2===0){
+        numsArr[i][x]='even'
+      }else{
+        numsArr[i][x]='odd'
+      }
+    }
+  }
+  return numsArr
+}
